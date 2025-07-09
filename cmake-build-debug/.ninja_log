@@ -1,0 +1,16 @@
+# ninja log v6
+5	1090	1751604090288018850	CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Infrastructure.cpp.o	e9d38f28eee1d14a
+5	1098	1751604090287844684	CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/TeamMenu.cpp.o	83b3d25794152448
+935	1072	1751604153711206055	PP_IT_Assets_Management_System	641e29549d8d060b
+6	624	1751695644942164300	CMakeFiles/PP_IT_Assets_Management_System.dir/main.cpp.o	13bf9c864ab3e583
+1	54	1751695723571114318	build.ninja	f9bdfafe561c0b93
+2	66	1751695723571114318	build.ninja	f9bdfafe561c0b93
+4	825	1751695723584380563	CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Support.cpp.o	1feb01dbf8fd5efa
+3	826	1751695723583683691	CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Analytics.cpp.o	71fe29040009859c
+4	827	1751695723584027148	CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Cybersecurity.cpp.o	bc9d7affdea45d6f
+4	828	1751695723584224772	CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Engineering.cpp.o	de24414096c8e534
+829	876	1751695724408952898	PP_IT_Assets_Management_System	5b87e83fc0f3166f
+9	998	1751939338719633904	CMakeFiles/PP_IT_Assets_Management_System.dir/main.cpp.o	13bf9c864ab3e583
+998	1151	1751939339709119520	PP_IT_Assets_Management_System	5b87e83fc0f3166f
+5	981	1751939349341320686	CMakeFiles/PP_IT_Assets_Management_System.dir/main.cpp.o	13bf9c864ab3e583
+981	1027	1751939350318008260	PP_IT_Assets_Management_System	5b87e83fc0f3166f
