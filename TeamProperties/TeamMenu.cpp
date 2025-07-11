@@ -3,11 +3,11 @@ TeamMenu::~TeamMenu(){}
 
 string TeamMenu::displayTeamOption(){
   stringstream ss;
-  ss << "1. Add asset" << endl;
-  ss << "2. Remove asset" << endl;
+  ss << "\n1. Add asset" << endl;
+  ss << "2. View asset" << endl;
   ss << "3. Update assets" << endl;
-  ss << "4. View assets" << endl;
-  ss << "5. Exit" << endl;
+  ss << "4. Delete assets" << endl;
+  ss << "5. Exit";
   return ss.str();
 }
 
@@ -16,7 +16,7 @@ void TeamMenu::handleTeamMenuInput(){
     bool flag = false;
     while (!flag){
         cout << displayTeamOption() << endl;
-        cout << "Select an option:" << endl;
+        cout << "Select an option: ";
         cin >> userInput;
         //Credit: perplexity. cin is not like other language, it doesn't go to catch directly when there is a type error. \
         //Using cin.fail and cin.ignore is more efficient.
@@ -32,11 +32,13 @@ void TeamMenu::handleTeamMenuInput(){
                     case 2: listDataAssets(); break;
                     case 3: updateAssets(); break;
                     case 4: deleteAssets(); break;
-                    case 5: exit(); break;
-                    default: throw "Invalid input! Please enter a number.\n";}
+                    case 5: exit(); return;
+                    default: throw runtime_error ("Invalid input! Please enter a number.\n");
+                }
             }
             catch(const exception& e) {
-                cout << e.what() << "\n";}
+                cout << e.what() << "\n";
+            }
         }
     }
 }

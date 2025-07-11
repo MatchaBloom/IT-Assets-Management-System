@@ -8,6 +8,7 @@ using namespace std;
 
 class Analytics: public TeamMenu {
 public:
+    Analytics() = default;
     void addAssets() override;
     void listDataAssets() override;
     void updateAssets() override;

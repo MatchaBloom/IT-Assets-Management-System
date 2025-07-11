@@ -17,4 +17,12 @@ add_executable(PP_IT_Assets_Management_System
         TeamProperties/Engineering.h
         TeamProperties/Support.cpp
         TeamProperties/Support.h
+        Assets/Assets.cpp
+        Assets/Assets.h
+        Assets/Server.cpp
+        Assets/Server.h
+        Assets/Application.cpp
+        Assets/Application.h
+        Additional.cpp
+        Additional.h
         )

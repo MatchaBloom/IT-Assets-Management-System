@@ -8,6 +8,7 @@ using namespace std;
 
 class Engineering: public TeamMenu {
     public:
+        Engineering() = default;
         void addAssets() override;
         void listDataAssets() override;
         void updateAssets() override;

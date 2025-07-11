@@ -2,20 +2,27 @@
 #define ASSETS_H
 #include <algorithm>
 #include <iostream>
+#include "../Additional.h"
 using namespace std;
 
-enum teamNameEnum {Analytics, Cybersecurity, Engineering, Infrastructure, Support};
 enum assetsEnvirontment {PROD, DEV, QA};
 
 class Assets {
     protected:
-      teamNameEnum teamNameOwner;
+      string teamNameOwner;
       assetsEnvirontment environment;
+      string assetLastComment;
     public:
       Assets();
-      Assets(teamNameEnum owner, assetsEnvirontment env);
+      Assets(string owner, assetsEnvirontment env, const string& newComment);
       virtual ~Assets();
       virtual void display() = 0;
+      static string getTeamName();
+      static assetsEnvirontment getEnvironment();
+      static string environmentToString(assetsEnvirontment env);
+      static string getAssetLastComment();
+      static bool uniqueNameAssets(const vector<string>& assetsNameVec, const string& nameToCheck);
+      static string getAssetsName(const vector<string>& assetsNameVec);
 };
 
 

@@ -91,6 +91,30 @@ build CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Support.cpp.o
   OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
   OBJECT_FILE_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties
 
+build CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Assets.cpp.o: CXX_COMPILER__PP_IT_Assets_Management_System_unscanned_Debug /Users/liedya/Desktop/PP_IT_Assets_Management_System/Assets/Assets.cpp || cmake_object_order_depends_target_PP_IT_Assets_Management_System
+  DEP_FILE = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Assets.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
+  OBJECT_FILE_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets
+
+build CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Server.cpp.o: CXX_COMPILER__PP_IT_Assets_Management_System_unscanned_Debug /Users/liedya/Desktop/PP_IT_Assets_Management_System/Assets/Server.cpp || cmake_object_order_depends_target_PP_IT_Assets_Management_System
+  DEP_FILE = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Server.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
+  OBJECT_FILE_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets
+
+build CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Application.cpp.o: CXX_COMPILER__PP_IT_Assets_Management_System_unscanned_Debug /Users/liedya/Desktop/PP_IT_Assets_Management_System/Assets/Application.cpp || cmake_object_order_depends_target_PP_IT_Assets_Management_System
+  DEP_FILE = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Application.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
+  OBJECT_FILE_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets
+
+build CMakeFiles/PP_IT_Assets_Management_System.dir/Additional.cpp.o: CXX_COMPILER__PP_IT_Assets_Management_System_unscanned_Debug /Users/liedya/Desktop/PP_IT_Assets_Management_System/Additional.cpp || cmake_object_order_depends_target_PP_IT_Assets_Management_System
+  DEP_FILE = CMakeFiles/PP_IT_Assets_Management_System.dir/Additional.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
+  OBJECT_FILE_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target PP_IT_Assets_Management_System
@@ -99,7 +123,7 @@ build CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Support.cpp.o
 #############################################
 # Link the executable PP_IT_Assets_Management_System
 
-build PP_IT_Assets_Management_System: CXX_EXECUTABLE_LINKER__PP_IT_Assets_Management_System_Debug CMakeFiles/PP_IT_Assets_Management_System.dir/main.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/TeamMenu.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Infrastructure.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Analytics.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Cybersecurity.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Engineering.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Support.cpp.o
+build PP_IT_Assets_Management_System: CXX_EXECUTABLE_LINKER__PP_IT_Assets_Management_System_Debug CMakeFiles/PP_IT_Assets_Management_System.dir/main.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/TeamMenu.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Infrastructure.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Analytics.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Cybersecurity.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Engineering.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Support.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Assets.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Server.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Application.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Additional.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6
   OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
   POST_BUILD = :

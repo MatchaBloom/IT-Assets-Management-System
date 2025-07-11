@@ -1,9 +1,11 @@
 #include <iostream>
+#include <memory>
+
 #include "TeamProperties/TeamMenu.h"
 #include "TeamProperties/Analytics.h"
-#include "TeamProperties/Infrastructure.h"
 #include "TeamProperties/Cybersecurity.h"
 #include "TeamProperties/Engineering.h"
+#include "TeamProperties/Infrastructure.h"
 #include "TeamProperties/Support.h"
 
 using namespace std;
@@ -27,7 +29,7 @@ unique_ptr<TeamMenu> selectTeam() {
             cout << "Invalid input! Please enter a number.\n";
         }
         switch (teamChoice) {
-            case 1: return make_unique<Analytics>();
+            case 1: return make_unique<Analytics>();;
             case 2: return make_unique<Cybersecurity>();
             case 3: return make_unique<Engineering>();
             case 4: return make_unique<Infrastructure>();

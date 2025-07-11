@@ -8,6 +8,7 @@ using namespace std;
 
 class Support: public TeamMenu {
 public:
+    Support() = default;
     void addAssets() override;
     void listDataAssets() override;
     void updateAssets() override;

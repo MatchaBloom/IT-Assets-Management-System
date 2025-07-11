@@ -8,6 +8,7 @@ using namespace std;
 
 class Cybersecurity: public TeamMenu {
     public:
+        Cybersecurity() = default;
         void addAssets() override;
         void listDataAssets() override;
         void updateAssets() override;

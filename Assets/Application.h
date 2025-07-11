@@ -16,7 +16,7 @@ private:
 
 public:
   Application();
-  Application(teamNameEnum owner, assetsEnvirontment env, shared_ptr<Server> server, const string& newAppName, const string& newAppComment);
+  Application(string owner, assetsEnvirontment env, shared_ptr<Server> server, const string& newAppName, const string& newComment);
   void display() override;
 };
 
