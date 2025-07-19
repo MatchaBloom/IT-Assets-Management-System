@@ -22,7 +22,7 @@ class Assets {
       static string environmentToString(assetsEnvirontment env);
       static string getAssetLastComment();
       static bool uniqueNameAssets(const vector<string>& assetsNameVec, const string& nameToCheck);
-      static string getAssetsName(const vector<string>& assetsNameVec);
+      static string getAssetsName(string assetName, const vector<string>& assetsNameVec);
 };
 
 

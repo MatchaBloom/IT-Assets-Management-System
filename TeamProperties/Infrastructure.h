@@ -5,14 +5,16 @@
 #include "TeamMenu.h"
 #include "../Assets/Server.h"
 #include "../Assets/Assets.h"
+#include "../Assets/Application.h"
+#include "../Assets/AssetController.h"
 using namespace std;
 
 class Infrastructure: public TeamMenu {
   protected:
     vector<shared_ptr<Server>> serversObject;
     vector <string> createdServerNames;
-    string newServerName, serverLastComment, serverMaker;
-    string infraAppName, infraAppLastComment, infraAppMaker;
+    vector<shared_ptr<Application>> infraAppVec;
+    vector <string> createdAppNames;
   public:
     Infrastructure() = default;
     void addAssets() override;
@@ -20,8 +22,8 @@ class Infrastructure: public TeamMenu {
     void updateAssets() override;
     void deleteAssets() override;
     void exit() override;
-    void createServer();
     void createApplication();
+    const vector<string>& getServerNameList() const;
 };
 
 

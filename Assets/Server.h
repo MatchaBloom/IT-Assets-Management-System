@@ -16,9 +16,10 @@ class Server: public Assets {
       Server();
       Server (string owner, assetsEnvirontment env, const string& newServer, const string& newComment);
       ~Server();
-      //static bool uniqueNameServer(const vector<string>& serverNames, const string& nameToCheck);
-      //static string getServerName(const vector<string>& serverNames);
+      string getServerName() const;
+      static void createServer(string serverMaker, vector<string>& createdServerNamesVec, vector<shared_ptr<Server>>& serverObjectVec);
       void display() override;
+      static void listDataAssets(vector<shared_ptr<Server>>& serverObjectVec);
 };
 
 

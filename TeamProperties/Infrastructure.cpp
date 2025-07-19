@@ -1,38 +1,48 @@
 #include "Infrastructure.h"
 void Infrastructure::addAssets() {
   cout << "Infrastructure::addAssets" << endl;
-  createServer();
+
+    while(true){
+        int choice;
+        cout << "Which assets do you want to add?" << endl;
+        cout << "1. Servers" << endl;
+        cout << "2. Application" << endl;
+        cin >> choice;
+
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input! Please enter a valid number.\n";
+        }
+        else {
+            try{
+                switch (choice){
+                    case 1:
+                        Server::createServer("Infrastructure", createdServerNames, serversObject);
+                        break;
+                    case 2:
+                        AssetController::createApplication("Infrastructure", serversObject, infraAppVec, createdAppNames);
+                        break;
+                    default:
+                        throw runtime_error ("Invalid input! Please enter a number.\n");
+                }
+            }
+            catch(const exception& e) {
+                cout << e.what() << "\n";
+            }
+        }
+    }
 }
-
-//For option 1 (Add assets (Server))
-void Infrastructure::createServer(){
-  newServerName = Assets::getAssetsName(createdServerNames);
-  serverMaker = "Infrastructure";
-  assetsEnvirontment env = Assets::getEnvironment();
-  serverLastComment = Assets::getAssetLastComment();
-
-  auto newServer = make_shared<Server>(serverMaker, env, newServerName, serverLastComment);
-  serversObject.push_back(newServer);
-  createdServerNames.push_back(newServerName);
-
-  cout << "Server " << newServerName << " created successfully!\n";
-}
-
 void Infrastructure::listDataAssets() {
   cout << "Infrastructure::listDataAssets" << endl;
-  cout << "=== List of Servers ===" << endl;
-  if (serversObject.empty()) {
-    cout << "No servers have been created yet." << endl;}
-  else {
-    for (const auto& serverPtr : serversObject) {
-      if (serverPtr) {
-        serverPtr->display();}
-    }
-  }
+  Server::listDataAssets(serversObject);
 }
+
+const vector<string>& Infrastructure::getServerNameList() const { return createdServerNames; }
 
 void Infrastructure::createApplication(){
   cout << "Infrastructure::createApplication" << endl;
+  //AssetController::createApplication("Infrastructure", infraAppVec, createdAppNames, serversObject);
 
 }
 void Infrastructure::updateAssets() {cout << "Infrastructure::updateAssets" << endl;}

@@ -23,6 +23,8 @@ add_executable(PP_IT_Assets_Management_System
         Assets/Server.h
         Assets/Application.cpp
         Assets/Application.h
+        Assets/AssetController.cpp
+        Assets/AssetController.h
         Additional.cpp
         Additional.h
         )
