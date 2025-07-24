@@ -4,16 +4,23 @@
 #include <iostream>
 #include <sstream>
 #include "TeamMenu.h"
+#include "TeamController.h"
+#include "../Assets/Application.h"
 using namespace std;
 
 class Analytics: public TeamMenu {
-public:
+  private:
+    static vector<shared_ptr<Application>> analyticsAppVec;
+  public:
     Analytics() = default;
     void addAssets() override;
     void listDataAssets() override;
     void updateAssets() override;
     void deleteAssets() override;
-    void exit() override;
+
+    static vector<shared_ptr<Application>>& getAnalyticsAppVecW();
+    const vector<shared_ptr<Application>>& getAnalyticsAppVecR();
+
 };
 
 #endif //ANALYTICS_H

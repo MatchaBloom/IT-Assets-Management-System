@@ -20,6 +20,7 @@ unique_ptr<TeamMenu> selectTeam() {
         cout << "3. Engineering\n";
         cout << "4. Infrastructure\n";
         cout << "5. Support\n";
+        cout << "6. Exit Program\n";
         cout << "Selection: ";
         int teamChoice;
         cin >> teamChoice;
@@ -29,23 +30,28 @@ unique_ptr<TeamMenu> selectTeam() {
             cout << "Invalid input! Please enter a number.\n";
         }
         switch (teamChoice) {
-            case 1: return make_unique<Analytics>();;
+            case 1: return make_unique<Analytics>();
             case 2: return make_unique<Cybersecurity>();
             case 3: return make_unique<Engineering>();
             case 4: return make_unique<Infrastructure>();
             case 5: return make_unique<Support>();
+            case 6: return nullptr;
             default: cout << "Invalid team selection. Try again.\n";
         }
-    }
+    } return nullptr; //only dummy
 }
 
 int main() {
+  while (true) {
     //Creating an auto variable that will hold a smart pointer.
     auto teamMenu = selectTeam();
-    //If successfully creating the teamMenu variable, then handleTeamMenuInput will handle inside TeamMenu class.
     if (teamMenu) {
-        teamMenu->handleTeamMenuInput();
+        teamMenu -> handleTeamMenuInput();
     }
-
-    return 0;
+    else {
+        break;
+    }
+  }
+  cout << "Thank you for trying this crusty program\nGoodbye!\n";
+  return 0;
 }

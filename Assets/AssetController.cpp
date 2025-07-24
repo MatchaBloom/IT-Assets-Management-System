@@ -2,42 +2,125 @@
 AssetController::AssetController(){}
 AssetController::~AssetController(){}
 
-shared_ptr<Server> AssetController::findServerName(const vector<shared_ptr<Server>>& serverNameVec, const string& name){
-    for (const auto& srvName : serverNameVec){
-        if(srvName && Additional::lowerCaseMode(srvName->getServerName()) == Additional::lowerCaseMode(name)){return srvName;}
+void AssetController::createServer(string serverMaker,
+                                   vector<string>& createdServerNamesVec,
+                                   vector<shared_ptr<Server>>& serverObjectVec)
+{
+  string newServerName = Assets::getAssetsName("server", createdServerNamesVec);
+  serverMaker = serverMaker;
+  assetsEnvirontment env = Assets::getEnvironment();
+  string serverLastComment = Assets::getAssetLastComment();
+
+  auto newServer = make_shared<Server>(serverMaker, env, newServerName, serverLastComment);
+  serverObjectVec.push_back(newServer);
+  writeServerToTxt(serverObjectVec);
+  string lowerServerName = Additional::lowerCaseMode(newServerName);
+  createdServerNamesVec.push_back(lowerServerName);
+  cout << "\nServer '" << newServerName << "' created successfully!\n\n";
+}
+
+shared_ptr<Server> AssetController::findServerName(const vector<shared_ptr<Server>>& serverNameVec,
+                                                   const string& name)
+{
+  for (const auto& srvName : serverNameVec){
+    if(srvName && Additional::lowerCaseMode(srvName->getServerName()) == Additional::lowerCaseMode(name)){
+      return srvName;
     }
-    return nullptr;
+  }
+  return nullptr;
 }
 
 shared_ptr<Server> AssetController::askServerName(const vector<shared_ptr<Server>>& serverNameVec){
-    if (serverNameVec.empty()) {
-        cout << "No servers available! Please create a server first.\n";
-        return nullptr;
-    }
-    cin.ignore();
-    string name;
-    while (true){
-        cout << "Enter the existing server name: ";
-        getline(cin, name);
+  string name;
+  while (true){
+    cout << "\nAvailable servers:\n";
+    listServer(serverNameVec);
+    cout << "Enter the existing server name: ";
+    getline(cin, name);
 
-        auto chosenServer = findServerName(serverNameVec, name);
-        if (chosenServer){return chosenServer;}
-        else{cout << "Server " << name << " not found!\n";}
-    }
-    return nullptr; //dummy
+    auto chosenServer = findServerName(serverNameVec, name);
+    if (chosenServer){return chosenServer;}
+    else{cout << "\nServer '" << name << "' not found!\n\n";}
+  }
+  return nullptr; //dummy
 }
-void AssetController::createApplication(string teamOwner, const vector<shared_ptr<Server>>& serverVec, vector<shared_ptr<Application>>& appObjectVec, vector<string>& appNameOnlyVec){
-    string teamNameOwner = teamOwner;
-    if (serverVec.empty()) {
-        cout << "No servers available! Please create a server first.\n";
-        return;}
-    shared_ptr<Server> server = askServerName(serverVec);
-    string appName = Assets::getAssetsName("application", appNameOnlyVec);
-    string appLastComment = Assets::getAssetLastComment();
 
-    auto newApp = make_shared<Application>(teamNameOwner, server, appName, appLastComment);
-    appObjectVec.push_back(newApp);
-    appNameOnlyVec.push_back(appName);
+void AssetController::createApplication(string teamOwner,
+                                        const vector<shared_ptr<Server>>& serverVec,
+                                        vector<shared_ptr<Application>>& appObjectVec,
+                                        const vector<string>& appNameOnlyVec,
+                                        function<void(const string&)> addToGlobalAppNames)
+{
+  string teamNameOwner = teamOwner;
+  if (serverVec.empty()) {
+    cout << "\nNo servers available! Please create a server first.\n";
+    return;}
 
-    cout << "Application " << appName << " created successfully!\n";
+  shared_ptr<Server> server = askServerName(serverVec);
+  if (!server) {return;}
+
+  string appName = Assets::getAssetsName("application", appNameOnlyVec);
+  string appLastComment = Assets::getAssetLastComment();
+
+  auto newApp = make_shared<Application>(teamNameOwner, server, appName, appLastComment);
+  appObjectVec.push_back(newApp);
+  addToGlobalAppNames(appName); //pushing the application name to the globsl vector
+
+  cout << "\nApplication '" << appName << "' created successfully in " << server->getServerName() << " (" << Assets::environmentToString(server->getServerEnvironment()) << ")!\n";
+  cout << "This application own by " << teamNameOwner << " team!\n";
+  cout << "Total applications in team: " << appObjectVec.size() << "\n";
+}
+
+void AssetController::listServer(const vector<shared_ptr<Server>>& serverObjectVec) {
+  cout << "=== List of Servers ===" << endl;
+  if (serverObjectVec.empty()) {
+    cout << "No servers have been created yet." << endl;}
+  else {
+    for (const auto& serverPtr : serverObjectVec) {
+      if (serverPtr) {
+        serverPtr->display(cout);
+      }
+    }
+  }
+}
+
+void AssetController::listApplication(const vector<shared_ptr<Application>>& appObjectVec) {
+  cout << "=== List of Application ===" << endl;
+  if (appObjectVec.empty()) {
+    cout << "No application have been created yet." << endl;}
+  else {
+    for (const auto& appPtr : appObjectVec) {
+      if (appPtr) {
+        appPtr->display(cout);
+      }
+    }
+  }
+}
+
+void AssetController::writeServerToTxt(const vector<shared_ptr<Server>>& serverObjectVec){
+  ofstream serverFile;
+  serverFile.open("../txtFileHolder/globalServer.txt");
+  if (serverFile.is_open()) {
+    for (const auto& serverPtr : serverObjectVec) {
+      serverPtr->display(serverFile);
+    }
+  }
+  else{
+    cerr << "Error: Could not open globalServer.txt for writing\n";
+  }
+  serverFile.close();
+}
+
+void AssetController::writeAppToTxt(string txtFileName, const vector<shared_ptr<Application>>& appObjectVec){
+  ofstream appFile;
+  appFile.open(txtFileName);
+  if (appFile.is_open()) {
+    for (const auto& appPtr : appObjectVec) {
+      appPtr->display(appFile);
+    }
+  }
+  else{
+    cerr << "Error: Could not open " << txtFileName << " for writing\n";
+  }
+  appFile.close();
 }

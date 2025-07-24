@@ -13,7 +13,6 @@ class TeamMenu {
         virtual void listDataAssets() = 0;
         virtual void updateAssets() = 0;
         virtual void deleteAssets() = 0;
-        virtual void exit() = 0;
 
         string displayTeamOption();
         void handleTeamMenuInput();

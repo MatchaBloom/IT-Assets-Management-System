@@ -17,9 +17,9 @@ class Server: public Assets {
       Server (string owner, assetsEnvirontment env, const string& newServer, const string& newComment);
       ~Server();
       string getServerName() const;
-      static void createServer(string serverMaker, vector<string>& createdServerNamesVec, vector<shared_ptr<Server>>& serverObjectVec);
-      void display() override;
-      static void listDataAssets(vector<shared_ptr<Server>>& serverObjectVec);
+      void display(ostream& out) override;
+      static void listServer(vector<shared_ptr<Server>>& serverObjectVec);
+      assetsEnvirontment getServerEnvironment() const;
 };
 
 

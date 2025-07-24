@@ -1,51 +1,100 @@
 #include "Infrastructure.h"
+vector<shared_ptr<Application>> Infrastructure::infraAppVec;
+
 void Infrastructure::addAssets() {
-  cout << "Infrastructure::addAssets" << endl;
-
-    while(true){
-        int choice;
-        cout << "Which assets do you want to add?" << endl;
-        cout << "1. Servers" << endl;
-        cout << "2. Application" << endl;
-        cin >> choice;
-
-        if (cin.fail()) {
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid input! Please enter a valid number.\n";
-        }
-        else {
-            try{
-                switch (choice){
-                    case 1:
-                        Server::createServer("Infrastructure", createdServerNames, serversObject);
-                        break;
-                    case 2:
-                        AssetController::createApplication("Infrastructure", serversObject, infraAppVec, createdAppNames);
-                        break;
-                    default:
-                        throw runtime_error ("Invalid input! Please enter a number.\n");
-                }
-            }
-            catch(const exception& e) {
-                cout << e.what() << "\n";
-            }
-        }
-    }
+    TeamController::addAsset("Infrastructure", infraAppVec);
+    AssetController::writeAppToTxt("../txtFileHolder/infrastructureApp.txt", infraAppVec);
 }
+
+void Infrastructure::listOtherTeamAssets(const string& teamName){
+  string teamNameLower = Additional::lowerCaseMode(teamName);
+  if(teamNameLower == "infrastructure"){
+    AssetManager::listServers();
+    AssetManager::listApplications(infraAppVec);
+  }
+  else if(teamNameLower == "analytics"){
+    Analytics analytics;
+    AssetManager::listApplications(analytics.getAnalyticsAppVecR());
+  }
+  else if(teamNameLower == "cybersecurity"){
+    Cybersecurity cyberSecurity;
+    AssetManager::listApplications(cyberSecurity.getCyberAppVecR());
+  }
+  else if(teamNameLower == "engineering"){
+    Engineering engineering;
+    AssetManager::listApplications(engineering.getEngAppVecR());
+  }
+  else if(teamNameLower == "support"){
+    Support support;
+    AssetManager::listApplications(support.getSupportAppVecR());
+  }
+  else {
+    cout << "unknown team name." << endl;
+  }
+}
+
+void Infrastructure::listAllTeamAssets() {
+  cout << "== ALL TEAM ASSETS ==" << endl;
+  cout << "== INFRASTRUCTURE ASSETS ==" << endl;
+  AssetManager::listServers();
+  AssetManager::listApplications(infraAppVec);
+  cout << "\n== ANALYTICS ASSETS ==" << endl;
+  Analytics analytics;
+  AssetManager::listApplications(analytics.getAnalyticsAppVecR());
+  cout << "\n== CYBERSECURITY ASSETS ==" << endl;
+  Cybersecurity cyberSecurity;
+  AssetManager::listApplications(cyberSecurity.getCyberAppVecR());
+  cout << "\n== ENGINEERING ASSETS ==" << endl;
+  Engineering engineering;
+  AssetManager::listApplications(engineering.getEngAppVecR());
+  cout << "\n== SUPPORT ASSETS ==" << endl;
+  Support support;
+  AssetManager::listApplications(support.getSupportAppVecR());
+}
+
 void Infrastructure::listDataAssets() {
-  cout << "Infrastructure::listDataAssets" << endl;
-  Server::listDataAssets(serversObject);
+    string userInput;
+    int choice;
+
+    cin.ignore();
+    while(true){
+      cout << "\nWhich assets do you want to see?" << endl;
+      cout << "1. Infrastructure assets" << endl;
+      cout << "2. Analytics assets" << endl;
+      cout << "3. Cybersecurity assets" << endl;
+      cout << "4. Engineering assets" << endl;
+      cout << "5. Support assets" << endl;
+      cout << "6. All team assets" << endl;
+      cout << "7. Back" << endl;
+      cout << "Choice: ";
+      getline(cin, userInput);
+
+    try {choice = stoi(userInput);}
+    catch (const exception& e) {
+      cout << "Error 1: Invalid input! Please enter a number.\n";
+      continue;
+    }
+
+    try{
+      switch (choice){
+          case 1: listOtherTeamAssets("infrastructure"); break;
+          case 2: listOtherTeamAssets("analytics"); break;
+          case 3: listOtherTeamAssets("cybersecurity"); break;
+          case 4: listOtherTeamAssets("engineering"); break;
+          case 5: listOtherTeamAssets("support"); break;
+          case 6: listAllTeamAssets(); break;
+          case 7: return;
+          default: throw runtime_error ("Error 2: Invalid input! Please enter a correct number.\n");
+      }
+    }
+    catch(const exception& e) {
+      cout << e.what() << "\n";
+    }
+  }
 }
 
-const vector<string>& Infrastructure::getServerNameList() const { return createdServerNames; }
 
-void Infrastructure::createApplication(){
-  cout << "Infrastructure::createApplication" << endl;
-  //AssetController::createApplication("Infrastructure", infraAppVec, createdAppNames, serversObject);
-
-}
 void Infrastructure::updateAssets() {cout << "Infrastructure::updateAssets" << endl;}
 void Infrastructure::deleteAssets() {cout << "Infrastructure::deleteAssets" << endl;}
-void Infrastructure::exit() {}
+
 

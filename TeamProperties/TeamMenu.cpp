@@ -32,7 +32,9 @@ void TeamMenu::handleTeamMenuInput(){
                     case 2: listDataAssets(); break;
                     case 3: updateAssets(); break;
                     case 4: deleteAssets(); break;
-                    case 5: exit(); return;
+                    case 5: cout << "Returning to team selection...\n\n";
+                            flag = false;
+                            return;
                     default: throw runtime_error ("Invalid input! Please enter a number.\n");
                 }
             }
@@ -42,6 +44,7 @@ void TeamMenu::handleTeamMenuInput(){
         }
     }
 }
+
 
 
 

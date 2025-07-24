@@ -3,17 +3,23 @@
 #include <algorithm>
 #include <iostream>
 #include <sstream>
-using namespace std;
 #include "TeamMenu.h"
+#include "TeamController.h"
+#include "../Assets/Application.h"
+using namespace std;
 
 class Support: public TeamMenu {
-public:
+  private:
+    static vector<shared_ptr<Application>> supportAppVec;
+  public:
     Support() = default;
     void addAssets() override;
     void listDataAssets() override;
     void updateAssets() override;
     void deleteAssets() override;
-    void exit() override;
+
+    static vector<shared_ptr<Application>>& getSupportAppVecW();
+    const vector<shared_ptr<Application>>& getSupportAppVecR();
 };
 
 

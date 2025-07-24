@@ -6,13 +6,14 @@ Assets::Assets(string owner, assetsEnvirontment env, const string& newComment){
   environment = env;
   assetLastComment = newComment;
 }
+
 Assets::~Assets(){}
 
 string Assets::getTeamName() {
   string teamName;
   while (true) {
     cout << "Enter team name (Analytics, Cybersecurity, Engineering, Infrastructure, Support): ";
-    cin >> teamName;
+    getline(cin, teamName);
     string lowerTeamName = Additional::lowerCaseMode(teamName);
     if (lowerTeamName == "analytics" ||
         lowerTeamName == "cybersecurity" ||
@@ -22,6 +23,35 @@ string Assets::getTeamName() {
       return lowerTeamName;}
     else {cout << "Invalid team name" << endl;}
   } return ""; //dummy
+}
+
+bool Assets::uniqueNameAssets(const vector<string>& assetsNameVec, const string& nameToCheck){
+  for (const auto& existingName : assetsNameVec){
+    if (existingName == nameToCheck){
+      return false;
+    }
+  }
+  return true;
+}
+
+string Assets::getAssetsName(string assetName, const vector<string>& assetsNameVec){
+  string name;
+  while (true){
+    cout << "Please enter a new " << assetName << " name: ";
+    getline(cin, name);
+
+    if (name.empty()) {
+      cout << "Name cannot be empty. Please try again." << endl;
+      continue;
+    }
+
+    string lowerServerName = Additional::lowerCaseMode(name);
+    if(!uniqueNameAssets(assetsNameVec, lowerServerName)){
+      cout << "This server name exists, find another name" << endl;
+    }
+    else {return name;}
+  }
+  return ""; //another dummy to silence the error ggrr
 }
 
 assetsEnvirontment Assets::getEnvironment(){
@@ -52,34 +82,4 @@ string Assets::getAssetLastComment(){
   cout << "Enter last comment for your server: ";
   getline(cin, comment);
   return comment;
-}
-
-bool Assets::uniqueNameAssets(const vector<string>& assetsNameVec, const string& nameToCheck){
-  for (const auto& existingName : assetsNameVec){
-    if (existingName == nameToCheck){
-      return false;
-    }
-  }
-  return true;
-}
-
-string Assets::getAssetsName(string assetName, const vector<string>& assetsNameVec){
-  cin.ignore(numeric_limits<streamsize>::max(), '\n');
-  string name;
-  while (true){
-    cout << "Please enter a new " << assetName << " name" << endl;
-    getline(cin, name);
-
-    if (name.empty()) {
-      cout << "Name cannot be empty. Please try again." << endl;
-      continue;
-    }
-
-    string lowerServerName = Additional::lowerCaseMode(name);
-    if(!uniqueNameAssets(assetsNameVec, lowerServerName)){
-      cout << "This server name exists, find another name" << endl;
-    }
-    else {return name;}
-  }
-  return ""; //another dummy to silence the error ggrr
 }

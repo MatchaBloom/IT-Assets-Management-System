@@ -1,6 +1,16 @@
 #include "Support.h"
-void Support::addAssets() {cout << "Support::addAssets" << endl;}
+vector<shared_ptr<Application>> Support::supportAppVec;
+
+void Support::addAssets() {
+  TeamController::addAsset("Support", supportAppVec);
+}
 void Support::listDataAssets() {cout << "Support::listDataAssets" << endl;}
 void Support::updateAssets() {cout << "Support::updateAssets" << endl;}
 void Support::deleteAssets() {cout << "Support::deleteAssets" << endl;}
-void Support::exit() {}
+
+vector<shared_ptr<Application>>& Support::getSupportAppVecW(){
+  return supportAppVec;
+}
+const vector<shared_ptr<Application>>& Support::getSupportAppVecR(){
+  return supportAppVec;
+}

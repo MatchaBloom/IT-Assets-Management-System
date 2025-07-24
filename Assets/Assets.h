@@ -12,11 +12,13 @@ class Assets {
       string teamNameOwner;
       assetsEnvirontment environment;
       string assetLastComment;
+
     public:
       Assets();
       Assets(string owner, assetsEnvirontment env, const string& newComment);
+
       virtual ~Assets();
-      virtual void display() = 0;
+      virtual void display(ostream& out) = 0;
       static string getTeamName();
       static assetsEnvirontment getEnvironment();
       static string environmentToString(assetsEnvirontment env);
