@@ -16,12 +16,10 @@ void AssetController::createServer(string serverMaker,
   writeServerToTxt(serverObjectVec);
   string lowerServerName = Additional::lowerCaseMode(newServerName);
   createdServerNamesVec.push_back(lowerServerName);
-  cout << "\nServer '" << newServerName << "' created successfully!\n\n";
+  cout << "\nServer '" << newServerName << "' created successfully!\n";
 }
 
-shared_ptr<Server> AssetController::findServerName(const vector<shared_ptr<Server>>& serverNameVec,
-                                                   const string& name)
-{
+shared_ptr<Server> AssetController::findServerName(const vector<shared_ptr<Server>>& serverNameVec, const string& name){
   for (const auto& srvName : serverNameVec){
     if(srvName && Additional::lowerCaseMode(srvName->getServerName()) == Additional::lowerCaseMode(name)){
       return srvName;
@@ -33,7 +31,7 @@ shared_ptr<Server> AssetController::findServerName(const vector<shared_ptr<Serve
 shared_ptr<Server> AssetController::askServerName(const vector<shared_ptr<Server>>& serverNameVec){
   string name;
   while (true){
-    cout << "\nAvailable servers:\n";
+    cout << "\nAvailable servers:";
     listServer(serverNameVec);
     cout << "Enter the existing server name: ";
     getline(cin, name);
@@ -72,7 +70,7 @@ void AssetController::createApplication(string teamOwner,
 }
 
 void AssetController::listServer(const vector<shared_ptr<Server>>& serverObjectVec) {
-  cout << "=== List of Servers ===" << endl;
+  cout << "\n=== List of Servers ===" << endl;
   if (serverObjectVec.empty()) {
     cout << "No servers have been created yet." << endl;}
   else {
@@ -123,4 +121,31 @@ void AssetController::writeAppToTxt(string txtFileName, const vector<shared_ptr<
     cerr << "Error: Could not open " << txtFileName << " for writing\n";
   }
   appFile.close();
+}
+
+void AssetController::removeApplication(vector<string>& appNameVec, const string& appName){
+  for (const auto& app: appNameVec) {
+    if (Additional::lowerCaseMode(app) == Additional::lowerCaseMode(appName)) {
+      appNameVec.erase(remove_if(appNameVec.begin(), appNameVec.end(), [&appName](const string& app){
+                return Additional::lowerCaseMode(app) == Additional::lowerCaseMode(appName);
+                }),
+      appNameVec.end());
+    }
+  }
+}
+
+void AssetController::removeServer(vector<shared_ptr<Server>>& serverObjectVec, vector<string>& globalServerNames, const string& serverName){
+  // Remove from serverObjectVec
+  serverObjectVec.erase(remove_if(serverObjectVec.begin(), serverObjectVec.end(),
+    [&serverName](const std::shared_ptr<Server>& server) {
+      return server && Additional::lowerCaseMode(server->getServerName()) == Additional::lowerCaseMode(serverName);
+      }),
+    serverObjectVec.end());
+
+    // Remove from globalServerNames
+    globalServerNames.erase(remove_if(globalServerNames.begin(), globalServerNames.end(),
+    [&serverName](const std::string& name) {
+      return Additional::lowerCaseMode(name) == Additional::lowerCaseMode(serverName);
+      }),
+    globalServerNames.end());
 }

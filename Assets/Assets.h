@@ -25,6 +25,9 @@ class Assets {
       static string getAssetLastComment();
       static bool uniqueNameAssets(const vector<string>& assetsNameVec, const string& nameToCheck);
       static string getAssetsName(string assetName, const vector<string>& assetsNameVec);
+
+      void setEnvironment(const assetsEnvirontment env);
+      void setNewComment(const string& newComment);
 };
 
 

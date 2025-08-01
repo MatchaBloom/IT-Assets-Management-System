@@ -17,6 +17,7 @@ class Server: public Assets {
       Server (string owner, assetsEnvirontment env, const string& newServer, const string& newComment);
       ~Server();
       string getServerName() const;
+      void setServerName(const string& newServerName);
       void display(ostream& out) override;
       static void listServer(vector<shared_ptr<Server>>& serverObjectVec);
       assetsEnvirontment getServerEnvironment() const;

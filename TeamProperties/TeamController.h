@@ -3,17 +3,24 @@
 #include <algorithm>
 #include <iostream>
 #include "TeamMenu.h"
+#include "ITeamAssetProvider.h"
 #include "../Assets/Server.h"
 #include "../Assets/Assets.h"
 #include "../Assets/Application.h"
 #include "../Assets/AssetController.h"
 #include "../Assets/AssetManager.h"
 
+
 class TeamController {
 public:
   TeamController();
   ~TeamController();
-  static void addAsset(const string& assetMaker, vector<shared_ptr<Application>>& teamApps);
+
+  //the function that has ITeamAssetProvider* teamProvider, basically will take
+  static void addAsset(const string& assetMaker, ITeamAssetProvider* teamProvider);
+  static void serverUpdateMenu();
+  static void applicationUpdateMenu(ITeamAssetProvider* teamProvider);
+  static void updateTeamMenu(const string& assetMaker, ITeamAssetProvider* teamProvider);
 };
 
 

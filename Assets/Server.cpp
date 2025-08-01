@@ -9,11 +9,14 @@ Server::~Server(){}
 
 string Server::getServerName() const {return serverName;}
 
+void Server::setServerName(const string& newServerName){
+  serverName = newServerName;
+}
+
 assetsEnvirontment Server::getServerEnvironment() const{return environment;}
 
 void Server::display(ostream& out){
   out << "Server name: " << serverName << endl;
-  out << "This server was made by: " << teamNameOwner << endl;
   out << "Environment name: " << Assets::environmentToString(environment) << endl;
   out << "Last comment: " << assetLastComment << endl;
   out << "Time added: " << Additional::dateTimeFormat() << endl;

@@ -6,11 +6,13 @@
 #include "TeamMenu.h"
 #include "TeamController.h"
 #include "../Assets/Application.h"
+#include "ITeamAssetProvider.h"
 using namespace std;
 
-class Support: public TeamMenu {
+class Support: public TeamMenu, public ITeamAssetProvider {
   private:
     static vector<shared_ptr<Application>> supportAppVec;
+    string fileName = "../txtFileHolder/supportApp.txt";
   public:
     Support() = default;
     void addAssets() override;
@@ -20,6 +22,13 @@ class Support: public TeamMenu {
 
     static vector<shared_ptr<Application>>& getSupportAppVecW();
     const vector<shared_ptr<Application>>& getSupportAppVecR();
+
+    vector<shared_ptr<Application>>& getTeamApps() override;
+    const string& getTeamFileName() override;
+    const string& getTeamName() override;
+
+    bool canRemoveServer() override;
+    bool canRemoveApplication() override;
 };
 
 

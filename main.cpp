@@ -21,7 +21,7 @@ unique_ptr<TeamMenu> selectTeam() {
         cout << "4. Infrastructure\n";
         cout << "5. Support\n";
         cout << "6. Exit Program\n";
-        cout << "Selection: ";
+        cout << "Enter the number: ";
         int teamChoice;
         cin >> teamChoice;
         if (cin.fail()) {
@@ -46,7 +46,7 @@ int main() {
     //Creating an auto variable that will hold a smart pointer.
     auto teamMenu = selectTeam();
     if (teamMenu) {
-        teamMenu -> handleTeamMenuInput();
+        teamMenu -> handleTeamMenuInput()
     }
     else {
         break;

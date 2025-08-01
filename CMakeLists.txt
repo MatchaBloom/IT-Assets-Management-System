@@ -19,6 +19,7 @@ add_executable(PP_IT_Assets_Management_System
         TeamProperties/Support.h
         TeamProperties/TeamController.cpp
         TeamProperties/TeamController.h
+        TeamProperties/ITeamAssetProvider.h
         Assets/Assets.cpp
         Assets/Assets.h
         Assets/Server.cpp
@@ -29,6 +30,8 @@ add_executable(PP_IT_Assets_Management_System
         Assets/AssetController.h
         Assets/AssetManager.cpp
         Assets/AssetManager.h
+        Assets/AssetUpdate.cpp
+        Assets/AssetUpdate.h
         Additional.cpp
         Additional.h
         )

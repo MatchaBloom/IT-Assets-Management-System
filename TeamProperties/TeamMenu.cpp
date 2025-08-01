@@ -3,7 +3,8 @@ TeamMenu::~TeamMenu(){}
 
 string TeamMenu::displayTeamOption(){
   stringstream ss;
-  ss << "\n1. Add asset" << endl;
+  cout << "\nPlease select the menu for further action:" << endl;
+  ss << "1. Add asset" << endl;
   ss << "2. View asset" << endl;
   ss << "3. Update assets" << endl;
   ss << "4. Delete assets" << endl;
@@ -16,7 +17,7 @@ void TeamMenu::handleTeamMenuInput(){
     bool flag = false;
     while (!flag){
         cout << displayTeamOption() << endl;
-        cout << "Select an option: ";
+        cout << "Enter the number: ";
         cin >> userInput;
         //Credit: perplexity. cin is not like other language, it doesn't go to catch directly when there is a type error. \
         //Using cin.fail and cin.ignore is more efficient.

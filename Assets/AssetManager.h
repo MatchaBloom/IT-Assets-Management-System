@@ -5,6 +5,7 @@ using namespace std;
 #include "Application.h"
 #include "Server.h"
 #include "AssetController.h"
+#include "AssetUpdate.h"
 
 #ifndef ASSETMANAGER_H
 #define ASSETMANAGER_H
@@ -16,10 +17,10 @@ class AssetManager {
     static vector<string> globalServerNames;
     static vector<string> globalAppNames;
 
+  public:
     static shared_ptr<Server> findServerByName(const string& name);
     static shared_ptr<Server> askForServerSelection();
 
-  public:
     static const vector<shared_ptr<Server>>& getServers() { return globalServers; }
     static const vector<string>& getServerNames() { return globalServerNames; }
     static const vector<string>& getAppNames() { return globalAppNames; }
@@ -30,6 +31,19 @@ class AssetManager {
 
     static void listServers();
     static void listApplications(const vector<shared_ptr<Application>>& apps);
+
+    static bool updateServerName(const string& oldName, const string& newName);
+    static bool updateServerEnvironment(const string& serverName, assetsEnvirontment newEnv);
+    static bool updateServerComment(const string& serverName, const string& newComment);
+
+    static bool updateApplicationName(const string& oldName, const string& newName, vector<shared_ptr<Application>>& appObjectVec, string& txtFileName);
+    static bool updateApplicationComment(const string& appName, const string& newComment, const vector<shared_ptr<Application>>& appObjectVec, string& txtFileName);
+    static bool moveApplicationToOtherServer(const string& appName, const vector<shared_ptr<Application>>& appObjectVec, string& txtFileName);
+
+    static void removeApplication(const string& appName);
+    static void removeServer(const string& serverName);
+
+
 
 };
 

@@ -127,6 +127,12 @@ build CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/AssetManager.cpp.o: C
   OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
   OBJECT_FILE_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets
 
+build CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/AssetUpdate.cpp.o: CXX_COMPILER__PP_IT_Assets_Management_System_unscanned_Debug /Users/liedya/Desktop/PP_IT_Assets_Management_System/Assets/AssetUpdate.cpp || cmake_object_order_depends_target_PP_IT_Assets_Management_System
+  DEP_FILE = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/AssetUpdate.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
+  OBJECT_FILE_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir/Assets
+
 build CMakeFiles/PP_IT_Assets_Management_System.dir/Additional.cpp.o: CXX_COMPILER__PP_IT_Assets_Management_System_unscanned_Debug /Users/liedya/Desktop/PP_IT_Assets_Management_System/Additional.cpp || cmake_object_order_depends_target_PP_IT_Assets_Management_System
   DEP_FILE = CMakeFiles/PP_IT_Assets_Management_System.dir/Additional.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6 -fcolor-diagnostics
@@ -141,7 +147,7 @@ build CMakeFiles/PP_IT_Assets_Management_System.dir/Additional.cpp.o: CXX_COMPIL
 #############################################
 # Link the executable PP_IT_Assets_Management_System
 
-build PP_IT_Assets_Management_System: CXX_EXECUTABLE_LINKER__PP_IT_Assets_Management_System_Debug CMakeFiles/PP_IT_Assets_Management_System.dir/main.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/TeamMenu.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Infrastructure.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Analytics.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Cybersecurity.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Engineering.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Support.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/TeamController.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Assets.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Server.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Application.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/AssetController.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/AssetManager.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Additional.cpp.o
+build PP_IT_Assets_Management_System: CXX_EXECUTABLE_LINKER__PP_IT_Assets_Management_System_Debug CMakeFiles/PP_IT_Assets_Management_System.dir/main.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/TeamMenu.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Infrastructure.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Analytics.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Cybersecurity.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Engineering.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/Support.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/TeamProperties/TeamController.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Assets.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Server.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/Application.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/AssetController.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/AssetManager.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Assets/AssetUpdate.cpp.o CMakeFiles/PP_IT_Assets_Management_System.dir/Additional.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -mmacosx-version-min=14.6
   OBJECT_DIR = CMakeFiles/PP_IT_Assets_Management_System.dir
   POST_BUILD = :

@@ -17,6 +17,13 @@ public:
   Application();
   Application(string owner, shared_ptr<Server> server, const string& newAppName, const string& newComment);
   void display(ostream& out) override;
+
+  void setApplicationName(const string& newName);
+  void setLastComment(const string& newComment);
+  void setServer(shared_ptr<Server> newServer);
+
+  shared_ptr<Server> getServer() const;
+  string getApplicationName() const;
 };
 
 

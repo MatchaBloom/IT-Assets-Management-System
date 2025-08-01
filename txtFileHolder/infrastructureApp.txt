@@ -1,7 +1,8 @@
-Application name: sssss in server sasa
+Application name: lululemon
+This application located in server: kucing tuna
 This application was made by: Infrastructure
-Environment name: QA
-Last comment: ssss
-Time added: Thu Jul 24 10:14:18 2025
+Environment name: PROD
+Last comment: woop
+Time added: Sat Jul 26 19:05:24 2025
 
 ----------------------------------------------

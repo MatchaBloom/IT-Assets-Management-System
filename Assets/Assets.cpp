@@ -54,6 +54,15 @@ string Assets::getAssetsName(string assetName, const vector<string>& assetsNameV
   return ""; //another dummy to silence the error ggrr
 }
 
+void Assets::setEnvironment(const assetsEnvirontment env){
+  environment = env;
+}
+
+void Assets::setNewComment(const string& newComment){
+  assetLastComment = newComment;
+}
+
+
 assetsEnvirontment Assets::getEnvironment(){
   string envInput;
   while (true){

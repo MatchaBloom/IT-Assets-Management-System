@@ -8,7 +8,10 @@ using namespace std;
 #include "Application.h"
 #include "Server.h"
 
-
+//This class functionality:
+// create server and application,
+// find existing server name and logic to ask user server name,
+// list, display, and write to txt file for server and application.
 class AssetController {
 public:
   AssetController();
@@ -22,7 +25,8 @@ public:
   static void writeServerToTxt(const vector<shared_ptr<Server>>& serverObjectVec);
   static void writeAppToTxt(string txtFileName, const vector<shared_ptr<Application>>& appObjectVec);
 
-
+  static void removeApplication(vector<string>& appNameVec, const string& appName);
+  static void removeServer(vector<shared_ptr<Server>>& serverObjectVec, vector<string>& globalServerNames, const string& serverName)
 //note: Static functions cannot call non-static member functions
 };
 

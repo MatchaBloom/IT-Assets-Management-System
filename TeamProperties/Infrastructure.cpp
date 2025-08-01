@@ -2,8 +2,8 @@
 vector<shared_ptr<Application>> Infrastructure::infraAppVec;
 
 void Infrastructure::addAssets() {
-    TeamController::addAsset("Infrastructure", infraAppVec);
-    AssetController::writeAppToTxt("../txtFileHolder/infrastructureApp.txt", infraAppVec);
+    TeamController::addAsset("Infrastructure", this);
+    AssetController::writeAppToTxt(fileName, infraAppVec);
 }
 
 void Infrastructure::listOtherTeamAssets(const string& teamName){
@@ -66,7 +66,7 @@ void Infrastructure::listDataAssets() {
       cout << "5. Support assets" << endl;
       cout << "6. All team assets" << endl;
       cout << "7. Back" << endl;
-      cout << "Choice: ";
+      cout << "Enter the number:: ";
       getline(cin, userInput);
 
     try {choice = stoi(userInput);}
@@ -94,7 +94,31 @@ void Infrastructure::listDataAssets() {
 }
 
 
-void Infrastructure::updateAssets() {cout << "Infrastructure::updateAssets" << endl;}
-void Infrastructure::deleteAssets() {cout << "Infrastructure::deleteAssets" << endl;}
+void Infrastructure::updateAssets() {
+  TeamController::updateTeamMenu("infrastructure", this);
+}
 
+void Infrastructure::deleteAssets() {
+  cout << "Infrastructure::deleteAssets" << endl;
+}
 
+vector<shared_ptr<Application>>& Infrastructure::getInfrastructureAppVecW(){
+  return infraAppVec;
+}
+
+const vector<shared_ptr<Application>>& Infrastructure::getInfrastructureAppVecR(){
+  return infraAppVec;
+}
+
+vector<shared_ptr<Application>>& Infrastructure::getTeamApps(){
+  return infraAppVec;
+}
+
+const string& Infrastructure::getTeamFileName(){
+  return fileName;
+}
+
+const string& Infrastructure::getTeamName(){
+  static string name = "Infrastructure";
+  return name;
+}
